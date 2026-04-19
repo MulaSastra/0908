@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mulasastra | Rumah Karya Sastra Sumatera Utara</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #faf6f0;
+      color: #2c2418;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4, .logo, .judul-karya, .hero-tagline {
+      font-family: 'Playfair Display', serif;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ========== HEADER ========== */
+    header {
+      background: rgba(255, 251, 245, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #e8dfd3;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 18px 0;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #8b5a2b;
+      text-decoration: none;
+      letter-spacing: -0.3px;
+    }
+    .logo span {
+      font-weight: 400;
+      font-style: italic;
+      color: #b88a58;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #4a3724;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: #b87a42;
+    }
+
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(135deg, #f5ede2 0%, #fef5ea 100%);
+      padding: 70px 0 60px;
+      text-align: center;
+      border-bottom: 1px solid #e8ddd0;
+    }
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: #6b3f1c;
+      margin-bottom: 16px;
+    }
+    .hero-tagline {
+      font-size: 1.2rem;
+      color: #876b4f;
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+    .hero-desc {
+      max-width: 650px;
+      margin: 0 auto;
+      color: #5a4532;
+      font-size: 0.95rem;
+    }
+
+    /* ========== SECTION TITLE ========== */
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #5b3a1e;
+      margin: 50px 0 30px;
+      text-align: center;
+    }
+    .section-title:after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 2px;
+      background: #cfaa7a;
+      margin: 12px auto 0;
+    }
+
+    /* ========== ETNIS CARD ========== */
+    .etnis-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      margin-bottom: 50px;
+    }
+    .etnis-card {
+      background: white;
+      border-radius: 20px;
+      padding: 24px 16px;
+      text-align: center;
+      border: 1px solid #ede3d8;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .etnis-card:hover {
+      transform: translateY(-4px);
+      border-color: #cfaa7a;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    }
+    .etnis-card i {
+      font-size: 2rem;
+      color: #b87a42;
+      margin-bottom: 12px;
+    }
+    .etnis-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+    }
+    .etnis-card p {
+      font-size: 0.7rem;
+      color: #8a7157;
+    }
+
+    /* ========== FORM PUBLIKASI KARYA ========== */
+    .form-publikasi {
+      background: white;
+      border-radius: 28px;
+      padding: 36px;
+      margin: 30px 0 50px;
+      border: 1px solid #ede3d8;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+    }
+    .form-group {
+      margin-bottom: 24px;
+    }
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #5b3a1e;
+      font-size: 0.9rem;
+    }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 14px 18px;
+      border: 1px solid #e2d5c8;
+      border-radius: 16px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      background: #fefcf9;
+      transition: border 0.2s;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: #b87a42;
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    .btn-submit {
+      background: #9b6a3c;
+      color: white;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+    .btn-submit:hover {
+      background: #7b4c27;
+    }
+
+    /* ========== DAFTAR KARYA (GRID PUISI & TULISAN) ========== */
+    .karya-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+    .karya-card {
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid #ede3d8;
+      transition: all 0.3s ease;
+    }
+    .karya-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.12);
+      border-color: #dccbb8;
+    }
+    .karya-header {
+      padding: 20px 24px 12px;
+      border-bottom: 1px solid #f0e7df;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .jenis-badge {
+      background: #f0e7df;
+      padding: 4px 12px;
+      border-radius: 30px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #8b5a2b;
+    }
+    .etnis-badge {
+      background: #faf0e6;
+      padding: 4px 12px;
+      border-radius: 30px;
+      font-size: 0.7rem;
+      color: #a07147;
+    }
+    .karya-body {
+      padding: 20px 24px;
+    }
+    .judul-karya {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #5b3a1e;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+    .isi-karya {
+      font-size: 0.9rem;
+      color: #4a3a2c;
+      line-height: 1.7;
+      margin-bottom: 16px;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .isi-karya-full {
+      font-size: 0.9rem;
+      color: #4a3a2c;
+      line-height: 1.7;
+      white-space: pre-wrap;
+    }
+    .karya-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid #f0e7df;
+      font-size: 0.7rem;
+      color: #a78666;
+    }
+    .btn-baca {
+      background: none;
+      border: none;
+      color: #b87a42;
+      font-weight: 600;
+      font-size: 0.8rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s;
+    }
+    .btn-baca:hover {
+      gap: 10px;
+    }
+
+    /* ========== MODAL BACA KARYA ========== */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+    .modal.active {
+      display: flex;
+    }
+    .modal-content {
+      background: #fefcf9;
+      max-width: 700px;
+      width: 90%;
+      max-height: 85vh;
+      border-radius: 28px;
+      overflow-y: auto;
+      padding: 40px;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #a78666;
+    }
+    .modal-judul {
+      font-size: 1.8rem;
+      color: #5b3a1e;
+      margin-bottom: 8px;
+      padding-right: 30px;
+    }
+    .modal-meta {
+      font-size: 0.8rem;
+      color: #a78666;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #ede3d8;
+    }
+    .modal-isi {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #3a2c1e;
+      white-space: pre-wrap;
+    }
+
+    /* ========== FILTER BUTTON ========== */
+    .filter-section {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 20px 0 30px;
+    }
+    .filter-btn {
+      padding: 8px 20px;
+      background: white;
+      border: 1px solid #ede3d8;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-btn.active {
+      background: #9b6a3c;
+      color: white;
+      border-color: #9b6a3c;
+    }
+
+    /* ========== FOOTER ========== */
+    footer {
+      background: #2c241a;
+      color: #d9caba;
+      padding: 48px 0 32px;
+      margin-top: 40px;
+      text-align: center;
+    }
+    .footer-content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .social-icons {
+      margin: 20px 0;
+    }
+    .social-icons a {
+      color: #c4aa86;
+      font-size: 1.2rem;
+      margin: 0 12px;
+      transition: color 0.2s;
+    }
+    .social-icons a:hover {
+      color: #e6c8a6;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .karya-grid {
+        grid-template-columns: 1fr;
+      }
+      .container {
+        padding: 0 20px;
+      }
+      .form-publikasi {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container navbar">
+      <a href="#" class="logo">Mulasastra<span> .</span></a>
+      <ul class="nav-links">
+        <li><a href="#" class="active" onclick="showTab('beranda')">Beranda</a></li>
+        <li><a href="#" onclick="showTab('publikasi')">Publikasi Karya</a></li>
+        <li><a href="#" onclick="showTab('koleksi')">Koleksi Sastra</a></li>
+        <li><a href="#">Tentang</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- Halaman Beranda -->
+    <div id="tab-beranda" class="tab-content">
+      <div class="hero">
+        <div class="container">
+          <h1>Mulasastra</h1>
+          <div class="hero-tagline">Rumah bagi penulis, penyair, dan pegiat sastra Sumatera Utara</div>
+          <p class="hero-desc">
+            Wadah untuk mempublikasikan puisi, cerpen, esai, dan karya sastra lisan.<br>
+            Dari Batak Toba, Melayu Deli, Mandailing, Karo, Simalungun, hingga Nias.
+          </p>
+        </div>
+      </div>
+      <div class="container">
+        <h2 class="section-title">Sastra Lisan Sumatera Utara</h2>
+        <div class="etnis-grid">
+          <div class="etnis-card"><i class="fas fa-drumstick-bite"></i><h3>Batak Toba</h3><p>Umpasa, Andung-andung, Turi-turian</p></div>
+          <div class="etnis-card"><i class="fas fa-mosque"></i><h3>Melayu Deli</h3><p>Pantun, Syair, Gurindam</p></div>
+          <div class="etnis-card"><i class="fas fa-mountain"></i><h3>Karo</h3><p>Erpangir ku lau, Turang</p></div>
+          <div class="etnis-card"><i class="fas fa-fish"></i><h3>Mandailing</h3><p>Ende-ende, Turi-turian</p></div>
+          <div class="etnis-card"><i class="fas fa-tree"></i><h3>Simalungun</h3><p>Turang, Cerita Rakyat</p></div>
+          <div class="etnis-card"><i class="fas fa-waveform"></i><h3>Nias</h3><p>Hoho, Famadaya Harimao</p></div>
+        </div>
+
+        <div style="text-align: center; margin: 40px 0;">
+          <button class="btn-submit" onclick="showTab('publikasi')"><i class="fas fa-pen-fancy"></i> Publikasikan Karyamu</button>
+          <button class="btn-submit" style="background: #b88a58; margin-left: 16px;" onclick="showTab('koleksi')"><i class="fas fa-book-open"></i> Baca Karya Lain</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Halaman Publikasi Karya -->
+    <div id="tab-publikasi" class="tab-content" style="display: none;">
+      <div class="hero" style="padding: 40px 0;">
+        <div class="container">
+          <h1>✍️ Publikasikan Karyamu</h1>
+          <p>Bagikan puisi, cerpen, esai, atau naskah sastra lisanmu ke komunitas</p>
+        </div>
+      </div>
+      <div class="container">
+        <div class="form-publikasi">
+          <form id="formKarya">
+            <div class="form-group">
+              <label>Jenis Karya *</label>
+              <select id="jenisKarya" required>
+                <option value="">Pilih jenis</option>
+                <option value="Puisi">📖 Puisi</option>
+                <option value="Cerpen">📚 Cerpen</option>
+                <option value="Esai">✍️ Esai Sastra</option>
+                <option value="Sastra Lisan">🎙️ Sastra Lisan (Umpasa/Pantun/dll)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Suku / Etnis *</label>
+              <select id="etnisKarya" required>
+                <option value="">Pilih etnis</option>
+                <option value="Batak Toba">Batak Toba</option>
+                <option value="Melayu Deli">Melayu Deli</option>
+                <option value="Mandailing">Mandailing</option>
+                <option value="Karo">Karo</option>
+                <option value="Simalungun">Simalungun</option>
+                <option value="Nias">Nias</option>
+                <option value="Lainnya">Lainnya / Lintas Etnis</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Judul Karya *</label>
+              <input type="text" id="judulKarya" placeholder="Contoh: Ompung, Ajari Kami Umpasa" required>
+            </div>
+            <div class="form-group">
+              <label>Isi Karya / Naskah *</label>
+              <textarea id="isiKarya" placeholder="Tulis puisi, cerpen, atau naskah sastra lisanmu di sini..."></textarea>
+            </div>
+            <div class="form-group">
+              <label>Nama Penulis / Pengirim</label>
+              <input type="text" id="penulis" placeholder="Nama samaran atau asli">
+            </div>
+            <div class="form-group">
+              <label>Deskripsi Singkat (Opsional)</label>
+              <textarea id="deskripsiKarya" placeholder="Cerita sedikit tentang karya ini..." rows="2"></textarea>
+            </div>
+            <button type="button" class="btn-submit" onclick="publikasikanKarya()"><i class="fas fa-paper-plane"></i> Terbitkan Karya</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Halaman Koleksi Karya -->
+    <div id="tab-koleksi" class="tab-content" style="display: none;">
+      <div class="hero" style="padding: 40px 0;">
+        <div class="container">
+          <h1>📖 Koleksi Karya Sastra</h1>
+          <p>Puisi, cerpen, esai, dan sastra lisan dari penulis Sumatera Utara</p>
+        </div>
+      </div>
+      <div class="container">
+        <div class="filter-section">
+          <button class="filter-btn active" onclick="filterKoleksi('semua')">Semua</button>
+          <button class="filter-btn" onclick="filterKoleksi('Puisi')">Puisi</button>
+          <button class="filter-btn" onclick="filterKoleksi('Cerpen')">Cerpen</button>
+          <button class="filter-btn" onclick="filterKoleksi('Esai')">Esai</button>
+          <button class="filter-btn" onclick="filterKoleksi('Sastra Lisan')">Sastra Lisan</button>
+        </div>
+        <div class="filter-section" style="margin-top: -10px;">
+          <button class="filter-btn" onclick="filterByEtnis('semua')">Semua Etnis</button>
+          <button class="filter-btn" onclick="filterByEtnis('Batak Toba')">Batak Toba</button>
+          <button class="filter-btn" onclick="filterByEtnis('Melayu Deli')">Melayu Deli</button>
+          <button class="filter-btn" onclick="filterByEtnis('Mandailing')">Mandailing</button>
+          <button class="filter-btn" onclick="filterByEtnis('Karo')">Karo</button>
+          <button class="filter-btn" onclick="filterByEtnis('Nias')">Nias</button>
+        </div>
+        <div id="koleksiContainer" class="karya-grid">
+          <!-- Karya akan ditampilkan di sini -->
+        </div>
+        <div id="emptyKoleksi" style="text-align: center; padding: 60px; color: #a78666; display: none;">
+          <i class="fas fa-feather-alt" style="font-size: 3rem; margin-bottom: 16px;"></i>
+          <p>Belum ada karya yang dipublikasikan.</p>
+          <button class="btn-submit" style="margin-top: 16px;" onclick="showTab('publikasi')">Jadilah yang pertama →</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal Baca Karya -->
+  <div id="modalKarya" class="modal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeModal()">&times;</span>
+      <div class="modal-judul" id="modalJudul"></div>
+      <div class="modal-meta" id="modalMeta"></div>
+      <div class="modal-isi" id="modalIsi"></div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div style="font-family: 'Playfair Display'; font-size: 1.5rem; margin-bottom: 16px;">Mulasastra</div>
+        <p>Merawat sastra lisan, menuliskan identitas bangsa. Sejak 2026</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-medium"></i></a>
+          <a href="#"><i class="fab fa-wattpad"></i></a>
+        </div>
+        <p style="font-size: 0.7rem;">📧 redaksi@mulasastra.id | 📍 Sumatera Utara, Indonesia</p>
+        <p style="font-size: 0.7rem; margin-top: 20px;">&copy; 2026 Mulasastra — Rumah bagi penulis dan pegiat sastra Sumatera Utara</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Data karya (disimpan di localStorage)
+    let daftarKarya = [];
+    let currentFilterJenis = 'semua';
+    let currentFilterEtnis = 'semua';
+
+    // Load data dari localStorage
+    function loadKarya() {
+      const saved = localStorage.getItem('mulasastra_karya_sumut');
+      if (saved) {
+        daftarKarya = JSON.parse(saved);
+      } else {
+        // Data demo
+        daftarKarya = [
+          {
+            id: 1,
+            jenis: 'Puisi',
+            etnis: 'Batak Toba',
+            judul: 'Ompung, Ajari Kami Umpasa',
+            isi: 'Ompung, ajari kami umpasa yang tak pernah mati\nBiar angin membawa irama gondang sabangunan\nDi kaki pusuk buhit, kami mencatat setiap andung\nSastra lisan Sumut, warisan yang tak bersuara sunyi.\n\nUmpasa mengalir dari bibir ke bibir\nSeperti air Danau Toba yang tak pernah kering\nAjari kami, Ompung\nAgar kami tak kehilangan jalan pulang.',
+            penulis: 'Boru Sitorus',
+            deskripsi: 'Puisi tentang kerinduan akan tradisi lisan Batak Toba',
+            tanggal: '2026-03-15'
+          },
+          {
+            id: 2,
+            jenis: 'Sastra Lisan',
+            etnis: 'Melayu Deli',
+            judul: 'Pantun Melayu Deli - Budi Sepanjang Zaman',
+            isi: 'Anak sembilang di Pasie Panjang\nBeli di Pasar Pulau Berayan\nBudi sepanjang tidak kan hilang\nSeperti telur diujung kayan\n\nKalau ada sumur di ladang\nBoleh kita menumpang mandi\nKalau ada umur yang panjang\nBoleh kita berjumpa lagi',
+            penulis: 'M. Yusuf',
+            deskripsi: 'Kumpulan pantun Melayu Deli tentang budi pekerti',
+            tanggal: '2026-03-10'
+          },
+          {
+            id: 3,
+            jenis: 'Cerpen',
+            etnis: 'Mandailing',
+            judul: 'Turi-turian ni si Bulan Na Jagar',
+            isi: 'Di sebuah desa di kaki Bukit Barisan, hiduplah seorang pemuda bernama Bulan. Ia dikenal na jagar - pemberani namun rendah hati. Suatu malam, ketika bulan purnama menyinari sawah-sawah, Bulan mendengar suara suling dari kejauhan. Itulah awal dari petualangannya mencari makna kehidupan...',
+            penulis: 'Syahrial Harahap',
+            deskripsi: 'Cerpen inspiratif tentang kearifan lokal Mandailing',
+            tanggal: '2026-03-05'
+          },
+          {
+            id: 4,
+            jenis: 'Puisi',
+            etnis: 'Nias',
+            judul: 'Hoho untuk Nusantara',
+            isi: 'Hoho hoho, dania niha\nFatahö-fatahö, baŵa nasi\nMifolakhömi khöda harimao\n\nDari bukit barisan hingga ujung lautan\nSyair kepahlawanan bergema\nHoho, jangan pernah berhenti bernyanyi\nAgar kami ingat dari mana kami berasal.',
+            penulis: 'Ama Gulo',
+            deskripsi: 'Puisi terinspirasi dari tradisi lisan Hoho Nias',
+            tanggal: '2026-02-28'
+          }
+        ];
+        saveKarya();
+      }
+      renderKoleksi();
+    }
+
+    function saveKarya() {
+      localStorage.setItem('mulasastra_karya_sumut', JSON.stringify(daftarKarya));
+    }
+
+    function publikasikanKarya() {
+      const jenis = document.getElementById('jenisKarya').value;
+      const etnis = document.getElementById('etnisKarya').value;
+      const judul = document.getElementById('judulKarya').value;
+      const isi = document.getElementById('isiKarya').value;
+      const penulis = document.getElementById('penulis').value || 'Anonim';
+      const deskripsi = document.getElementById('deskripsiKarya').value;
+
+      if (!jenis || !etnis || !judul || !isi) {
+        alert('Mohon lengkapi semua field yang diperlukan!');
+        return;
+      }
+
+      const karyaBaru = {
+        id: Date.now(),
+        jenis: jenis,
+        etnis: etnis,
+        judul: judul,
+        isi: isi,
+        penulis: penulis,
+        deskripsi: deskripsi || '',
+        tanggal: new Date().toISOString().split('T')[0]
+      };
+
+      daftarKarya.unshift(karyaBaru);
+      saveKarya();
+      alert('Karyamu berhasil dipublikasikan! Terima kasih telah berkontribusi.');
+      
+      // Reset form
+      document.getElementById('formKarya').reset();
+      showTab('koleksi');
+      renderKoleksi();
+    }
+
+    function renderKoleksi() {
+      const container = document.getElementById('koleksiContainer');
+      const emptyMsg = document.getElementById('emptyKoleksi');
+      
+      let filtered = daftarKarya;
+      if (currentFilterJenis !== 'semua') {
+        filtered = filtered.filter(k => k.jenis === currentFilterJenis);
+      }
+      if (currentFilterEtnis !== 'semua') {
+        filtered = filtered.filter(k => k.etnis === currentFilterEtnis);
+      }
+
+      if (filtered.length === 0) {
+        container.innerHTML = '';
+        emptyMsg.style.display = 'block';
+        return;
+      }
+      emptyMsg.style.display = 'none';
+
+      container.innerHTML = filtered.map(karya => {
+        // Potongan isi untuk preview
+        let previewIsi = karya.isi.substring(0, 200);
+        if (karya.isi.length > 200) previewIsi += '...';
+        
+        return `
+          <div class="karya-card">
+            <div class="karya-header">
+              <span class="jenis-badge"><i class="fas ${getJenisIcon(karya.jenis)}"></i> ${karya.jenis}</span>
+              <span class="etnis-badge"><i class="fas fa-users"></i> ${karya.etnis}</span>
+            </div>
+            <div class="karya-body">
+              <div class="judul-karya">${escapeHtml(karya.judul)}</div>
+              <div class="isi-karya">${escapeHtml(previewIsi)}</div>
+              <div class="karya-meta">
+                <span><i class="fas fa-user-pen"></i> ${escapeHtml(karya.penulis)}</span>
+                <span><i class="far fa-calendar"></i> ${karya.tanggal}</span>
+                <button class="btn-baca" onclick="bacaKarya(${karya.id})">Baca Selengkapnya <i class="fas fa-arrow-right"></i></button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function getJenisIcon(jenis) {
+      switch(jenis) {
+        case 'Puisi': return 'fa-feather-alt';
+        case 'Cerpen': return 'fa-book-open';
+        case 'Esai': return 'fa-pen-nib';
+        case 'Sastra Lisan': return 'fa-microphone-alt';
+        default: return 'fa-book';
+      }
+    }
+
+    function bacaKarya(id) {
+      const karya = daftarKarya.find(k => k.id === id);
+      if (!karya) return;
+      
+      document.getElementById('modalJudul').innerHTML = karya.judul;
+      document.getElementById('modalMeta').innerHTML = `
+        <i class="fas fa-tag"></i> ${karya.jenis} &nbsp;|&nbsp;
+        <i class="fas fa-users"></i> ${karya.etnis} &nbsp;|&nbsp;
+        <i class="fas fa-user-pen"></i> ${escapeHtml(karya.penulis)} &nbsp;|&nbsp;
+        <i class="far fa-calendar"></i> ${karya.tanggal}
+      `;
+      document.getElementById('modalIsi').innerHTML = escapeHtml(karya.isi).replace(/\n/g, '<br>');
+      document.getElementById('modalKarya').classList.add('active');
+    }
+
+    function closeModal() {
+      document.getElementById('modalKarya').classList.remove('active');
+    }
+
+    function filterKoleksi(jenis) {
+      currentFilterJenis = jenis;
+      // Update active button style
+      document.querySelectorAll('.filter-section:first-child .filter-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.innerText.toLowerCase() === jenis.toLowerCase() || (jenis === 'semua' && btn.innerText === 'Semua')) {
+          btn.classList.add('active');
+        }
+      });
+      renderKoleksi();
+    }
+
+    function filterByEtnis(etnis) {
+      currentFilterEtnis = etnis;
+      document.querySelectorAll('.filter-section:last-child .filter-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.innerText === etnis || (etnis === 'semua' && btn.innerText === 'Semua Etnis')) {
+          btn.classList.add('active');
+        }
+      });
+      renderKoleksi();
+    }
+
+    function showTab(tab) {
+      document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
+      document.getElementById(`tab-${tab}`).style.display = 'block';
+      
+      // Update active nav
+      document.querySelectorAll('.nav-links a').forEach(link => link.classList.remove('active'));
+      if (tab === 'beranda') document.querySelector('.nav-links a:first-child')?.classList.add('active');
+      if (tab === 'publikasi') document.querySelector('.nav-links a:nth-child(2)')?.classList.add('active');
+      if (tab === 'koleksi') document.querySelector('.nav-links a:nth-child(3)')?.classList.add('active');
+      
+      if (tab === 'koleksi') renderKoleksi();
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return str.replace(/[&<>]/g, function(m) {
+        if (m === '&') return '&amp;';
+        if (m === '<') return '&lt;';
+        if (m === '>') return '&gt;';
+        return m;
+      });
+    }
+
+    // Tutup modal dengan klik di luar
+    window.onclick = function(event) {
+      const modal = document.getElementById('modalKarya');
+      if (event.target === modal) closeModal();
+    }
+
+    loadKarya();
+  </script>
+</body>
+</html>
